@@ -15,6 +15,15 @@ export default function TabLayout() {
         headerShown: false,
       }}>
       <Tabs.Screen
+        name="water"
+        options={{
+          title: 'Water',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'water' : 'water-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
@@ -28,7 +37,7 @@ export default function TabLayout() {
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <TabBarIcon name={focused ? 'map' : 'map-outline'} color={color} />
           ),
         }}
       />
