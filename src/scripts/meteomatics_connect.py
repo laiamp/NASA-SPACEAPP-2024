@@ -191,6 +191,13 @@ def parse_soil_moisture_historical_to_json(
     return json.dumps(result, indent=2)
 
 
+def parse_feature_to_json(
+    data: pd.DataFrame
+) -> str:
+    data.index = data.index.to_series().apply(lambda x: x.isoformat())
+    records = data.reset_index().to_dict(orient='records')
+    return json.dumps(records, indent=2)
+
 
 if __name__ == '__main__':
     '''
@@ -200,6 +207,7 @@ if __name__ == '__main__':
         location='52.520551,13.461804',
         output_format='csv'
     )
+    '''
     '''
     a = get_soil_moisture_from_region(
         region=Region(
@@ -213,16 +221,16 @@ if __name__ == '__main__':
     )
     print(parse_soil_moisture_historical_to_json(a))
     '''
-    a = get_temperature_historical(
+    a = get_feature_historical(
         region=Region(
             top_right=(41.600273, 0.812349),
             bot_left=(41.569333, 0.722734)
         ),
-        start_date=datetime(2023, 10, 8),
+        feature='temperature',
+        start_date=datetime(2021, 1, 1),
         end_date=datetime(2024, 10, 8),
         interval_hours=24,
     )
-    print(a)
-    '''
+    print(parse_feature_to_json(a))
 
 # 41.600273, 0.812349 ---- 41.569333, 0.722734
