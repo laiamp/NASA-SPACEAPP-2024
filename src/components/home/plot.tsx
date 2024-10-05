@@ -1,52 +1,7 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
+import { Plotline, paleta2 } from './constants';
 
-// Meses del año
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-// Clase Plotline
-class Plotline {
-    private year: number;
-    private data: number[];
-    private color: string;
-
-    constructor(year: number, data: number[], color: string) {
-        this.year = year;
-        this.data = data;
-        this.color = color;
-    }
-
-    public get_year(): number {
-        return this.year;
-    }
-
-    public get_data(): number[] {
-        return this.data;
-    }
-
-    public get_color(): string {
-        return this.color;
-    }
-
-    public get_plotline_information(): Record<string, any> {
-        return {
-            x: months,
-            y: this.data,
-            mode: 'lines+markers',
-            type: 'scatter',
-            marker: { color: this.color },
-            line: { shape: 'linear', color: this.color },
-            name: this.year.toString(),
-        };
-    }
-}
-
-function get_humidity_from_api(
-
-)
-
-const paleta1 = ['#243642', '#387478', '#629584', '#E2F1E7']
-const paleta2 = ['#16423C', '#6A9C89', '#C4DAD2', '#E9EFEC']
 
 function ScatterPlot() {
     const raw_data: Plotline[] = [
