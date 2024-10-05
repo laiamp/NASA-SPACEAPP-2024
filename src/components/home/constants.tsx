@@ -2,10 +2,10 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 export class Plotline {
     private year: number;
-    private data: number[];
+    private data: (number | null)[];
     private color: string;
 
-    constructor(year: number, data: number[], color: string) {
+    constructor(year: number, data: (number | null)[], color: string) {
         this.year = year;
         this.data = data;
         this.color = color;
@@ -15,7 +15,7 @@ export class Plotline {
         return this.year;
     }
 
-    public get_data(): number[] {
+    public get_data(): (number | null)[] {
         return this.data;
     }
 
@@ -36,6 +36,14 @@ export class Plotline {
     }
 }
 
+export interface TemperatureData {
+    date: string;
+    temperature: number;
+}
+
+export interface MonthlyAverage {
+    [year: number]: (number | null)[];
+}
 
 export const paleta1 = ['#243642', '#387478', '#629584', '#E2F1E7']
 export const paleta2 = ['#16423C', '#6A9C89', '#C4DAD2', '#E9EFEC']

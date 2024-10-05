@@ -1,5 +1,3 @@
-import React from 'react';
-import Plot from 'react-plotly.js';
 import { Plotline, paleta2 } from './constants';
 import axios from 'axios';
 
