@@ -1,10 +1,11 @@
 import React from 'react';
+import MapWithLayers from './MapWithLayers';
 
 const Explore = () => {
   return (
-    <div>
-      <h2>Explore</h2>
-      <p>Estos son nuestros servicios.</p>
+    <div className="App">
+      <h1>Leaflet Map with Layers</h1>
+      <MapWithLayers />
     </div>
   );
 };
