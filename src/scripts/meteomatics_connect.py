@@ -138,7 +138,7 @@ def _get_center_of_region(region: Region) -> Point:
     )
 
 
-def get_temperature_historical(
+def get_feature_historical(
     region: Region,
     start_date: datetime,
     end_date: datetime,

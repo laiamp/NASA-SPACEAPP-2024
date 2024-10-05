@@ -1,5 +1,7 @@
-from flask import Flask
 import os
+
+from flask import Flask
+
 
 def create_app(test_config=None):
     # create and configure the app
@@ -22,19 +24,17 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # ENDPOINT
-    @app.route('/')
+    # a simple page that says hello
+    @app.route('/hello')
     def hello():
         return 'Hello, World!'
-    
-    #Authentification code
+
+    from . import db
+    db.init_app(app)
+    from . import data
+    app.register_blueprint(data.bp)
     from . import auth
     app.register_blueprint(auth.bp)
-
-    return app
-
-app = Flask(__name__)
-
-
-
     
+    
+    return app
