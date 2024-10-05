@@ -1,7 +1,8 @@
-// src/components/Navbar.js
 import React from "react";
 import "./navbar.css";
-import waterImage from "./images/watering_can.png"; // Adjust the path as needed -> path was wrong and it didn't show at all
+import mapImage from "./images/map.svg"; // Adjust the path as needed -> path was wrong and it didn't show at all
+import homeImage from "./images/wheat.svg"; // Adjust the path as needed -> path was wrong and it didn't show at all
+import bar from "./images/bar.svg"; // Adjust the path as needed -> path was wrong and it didn't show at all
 
 const Navbar = ({ activeTab, onTabChange }) => {
   return (
@@ -12,22 +13,30 @@ const Navbar = ({ activeTab, onTabChange }) => {
           onClick={() => onTabChange("water")}
         >
           <img
-            src={waterImage}
+            src={mapImage}
             alt="Watering_can"
-            style={{ width: "50px", height: "50px" }}
+            style={{ width: "35px", height: "35px" }}
           />
         </li>
         <li
           className={`navbar-item ${activeTab === "home" ? "active" : ""}`}
           onClick={() => onTabChange("home")}
         >
-          Inicio
+          <img
+            src={homeImage}
+            alt="Watering_can"
+            style={{ width: "35px", height: "35px" }}
+          />
         </li>
         <li
           className={`navbar-item ${activeTab === "explore" ? "active" : ""}`}
           onClick={() => onTabChange("explore")}
         >
-          Explore
+          <img
+            src={bar}
+            alt="Watering_can"
+            style={{ width: "35px", height: "35px" }}
+          />
         </li>
       </ul>
     </nav>
