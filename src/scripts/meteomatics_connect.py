@@ -6,6 +6,7 @@ from datetime import datetime
 from dataclasses import dataclass
 from typing import TypeAlias
 import numpy as np
+import json
 
 METEOMATICS = 'https://api.meteomatics.com'
 USERNAME = 'salasis_pau'
@@ -102,7 +103,7 @@ def get_soil_moisture_from_region(
     interval_hours: int,
     step: tuple[float, float],
     output_format: str = 'csv'
-) -> pd.DataFrame:
+) -> HistoricalSoilMoisture:
     time_interval = _generate_time_interval(
         start_date=start_date,
         end_date=end_date,
@@ -138,7 +139,7 @@ def _get_center_of_region(region: Region) -> Point:
     )
 
 
-def get_temperature_historical(
+def get_feature_historical(
     region: Region,
     start_date: datetime,
     end_date: datetime,
@@ -166,6 +167,37 @@ def get_temperature_historical(
     return data
 
 
+def parse_soil_moisture_historical_to_json(
+    soil_moisture_data: HistoricalSoilMoisture
+) -> str:
+    result = []
+
+    for group in soil_moisture_data:
+        group_data = []
+        for soil_moisture in group:
+            df = soil_moisture.data
+            location = soil_moisture.location
+            
+            df.index = df.index.to_series().apply(lambda x: x.isoformat())
+            records = df.reset_index().to_dict(orient='records')
+            
+            group_data.append({
+                "location": location,
+                "data": records
+            })
+        
+        result.append(group_data)
+
+    return json.dumps(result, indent=2)
+
+
+def parse_feature_to_json(
+    data: pd.DataFrame
+) -> str:
+    data.index = data.index.to_series().apply(lambda x: x.isoformat())
+    records = data.reset_index().to_dict(orient='records')
+    return json.dumps(records, indent=2)
+
 
 if __name__ == '__main__':
     '''
@@ -182,22 +214,23 @@ if __name__ == '__main__':
             top_right=(41.600273, 0.812349),
             bot_left=(41.569333, 0.722734)
         ),
-        start_date=datetime(2023, 10, 8),
+        start_date=datetime(2021, 1, 1),
         end_date=datetime(2024, 10, 8),
         interval_hours=24,
         step=(0.03094 / 2, 0.089615 / 5)
     )
-    print(a)
+    print(parse_soil_moisture_historical_to_json(a))
     '''
-    a = get_temperature_historical(
+    a = get_feature_historical(
         region=Region(
             top_right=(41.600273, 0.812349),
             bot_left=(41.569333, 0.722734)
         ),
-        start_date=datetime(2023, 10, 8),
+        feature='temperature',
+        start_date=datetime(2021, 1, 1),
         end_date=datetime(2024, 10, 8),
         interval_hours=24,
     )
-    print(a)
+    print(parse_feature_to_json(a))
 
 # 41.600273, 0.812349 ---- 41.569333, 0.722734
