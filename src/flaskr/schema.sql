@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS post;
+DROP TABLE IF EXISTS soilmoisture;
 
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -7,11 +7,11 @@ CREATE TABLE user (
   password TEXT NOT NULL
 );
 
-CREATE TABLE post (
+CREATE TABLE soilmoisture (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  author_id INTEGER NOT NULL,
-  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  title TEXT NOT NULL,
-  body TEXT NOT NULL,
-  FOREIGN KEY (author_id) REFERENCES user (id)
+  region TEXT NOT NULL,
+  start_date TEXT NOT NULL,
+  end_date TEXT NOT NULL,
+  interval_hours FLOAT[] NOT NULL,
+  output_format TEXT NOT NULL
 );
