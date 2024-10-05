@@ -1,0 +1,45 @@
+.navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+  
+  .navbar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .navbar-item {
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .navbar-link {
+    color: white;
+    text-decoration: none; /* Sin subrayado */
+  }
+  
+  .navbar-link:hover {
+    background-color: #444;
+  }
+  
+  /* Para ocultar el navbar en pantallas grandes */
+  @media (min-width: 768px) {
+    .navbar {
+      display: none; /* Oculta el navbar en pantallas grandes */
+    }
+  }
+  
+  .content {
+    margin-bottom: 60px; /* Para que el contenido no quede detrás del navbar */
+  }
+  
