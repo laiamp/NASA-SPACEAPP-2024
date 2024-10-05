@@ -1,12 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
+import MapEmbed from './explore/mapView';
+import ToggleList from './explore/togglePoints';
 
-const Explore = () => {
+function Explore() {
+  const [point, setPoint] = useState();
   return (
     <div>
-      <h2>Explore</h2>
-      <p>Estos son nuestros servicios.</p>
+      <h2>Landmarks</h2>
+      <MapEmbed point={point}/>
+      <ToggleList setPoint={setPoint} />
     </div>
   );
 };
+
+// al mapa només mostrem xinxeta
+// a sota desplegable amb info del punt
 
 export default React.memo(Explore);
