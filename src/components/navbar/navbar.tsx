@@ -1,10 +1,16 @@
-import React from "react";
 import "./navbar.css";
-import mapImage from "./images/map.svg"; // Adjust the path as needed -> path was wrong and it didn't show at all
-import homeImage from "./images/wheat.svg"; // Adjust the path as needed -> path was wrong and it didn't show at all
-import bar from "./images/bar.svg"; // Adjust the path as needed -> path was wrong and it didn't show at all
+import mapImage from "./images/map.svg";
+import homeImage from "./images/home.svg";
+import plotImage from "./images/bar.svg";
+import mapSelectedImage from "./images/map-selected.svg";
+import homeSelectedImage from "./images/home-selected.svg";
+import plotSelectedImage from "./images/bar-selected.svg";
 
 const Navbar = ({ activeTab, onTabChange }) => {
+  const source_map = activeTab === "water" ? mapSelectedImage : mapImage;
+  const source_home = activeTab === "home" ? homeSelectedImage : homeImage;
+  const source_plot = activeTab === "explore" ? plotSelectedImage : plotImage;
+
   return (
     <nav className="navbar">
       <ul className="navbar-list">
@@ -13,9 +19,12 @@ const Navbar = ({ activeTab, onTabChange }) => {
           onClick={() => onTabChange("water")}
         >
           <img
-            src={mapImage}
+            src={source_map}
             alt="Watering_can"
-            style={{ width: "35px", height: "35px" }}
+            style={{
+              width: "40px",
+              height: "40px",
+            }}
           />
         </li>
         <li
@@ -23,9 +32,12 @@ const Navbar = ({ activeTab, onTabChange }) => {
           onClick={() => onTabChange("home")}
         >
           <img
-            src={homeImage}
+            src={source_home}
             alt="Watering_can"
-            style={{ width: "35px", height: "35px" }}
+            style={{
+              width: "35px",
+              height: "35px",
+            }}
           />
         </li>
         <li
@@ -33,7 +45,7 @@ const Navbar = ({ activeTab, onTabChange }) => {
           onClick={() => onTabChange("explore")}
         >
           <img
-            src={bar}
+            src={source_plot}
             alt="Watering_can"
             style={{ width: "35px", height: "35px" }}
           />
