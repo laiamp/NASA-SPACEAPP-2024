@@ -101,13 +101,21 @@ const MapWithLayers = () => {
         <MapContainer center={[41.6176, 0.6200]} zoom={13} style={{ height: '100%', width: '100%' }}>
           <MapClickHandler onMapClick={addLayer} />
 
-          <LayersControl position="topright">
-            <BaseLayer checked name="OpenStreetMap">
-              <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              />
-            </BaseLayer>
+        <LayersControl position="topright">
+          <BaseLayer checked name="Satellite">
+            <TileLayer
+              url="https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=8P4u6vnK1fS4CeguiKOp"
+              attribution='&copy; <a href="https://openaerialmap.org">OpenAerialMap</a>'
+            />
+          </BaseLayer>
+
+          <BaseLayer checked name="Street View">
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+          </BaseLayer>
+
 
             {layers.length > 0 && layers.map((layer) => (
               <Overlay key={layer.timestamp} checked name={layer.name}>
