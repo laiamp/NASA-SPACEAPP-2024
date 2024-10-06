@@ -45,6 +45,6 @@ export interface MonthlyAverage {
     [year: number]: (number | null)[];
 }
 
-export const temperaturePalette = ['#FFCCCB', '#FF9999', '#FF6666', '#FF3333', '#FF0000', '#B22222'];
-export const humidityPalette = ['#A8E6CE', '#66BB6A', '#388E3C', '#2E7D32', '#1B5E20', '#004D40'];
+export const temperaturePalette = ['#B22222', '#FF0000', '#FF3333', '#FF6666', '#FF9999', '#FFCCCB'];
+export const humidityPalette = ['#004D40', '#1B5E20', '#2E7D32', '#388E3C', '#66BB6A', '#A8E6CE'];
 export const rainfallPalette = ['#003366', '#336699', '#6699CC', '#99CCFF', '#CCE5FF'];
