@@ -17,7 +17,7 @@ const getColor = (value: number): string => {
   return `rgb(${red}, ${green}, 0)`;          // Blue stays at 0 for red-to-green transition
 };
 
-const CropBarChart: React.FC<CropBarChartProps> = ({ crops }) => {
+const Recommender: React.FC<CropBarChartProps> = ({ crops }) => {
   return (
     <div>
       <h2>Crop Compatibility with Field</h2>
@@ -42,4 +42,4 @@ const CropBarChart: React.FC<CropBarChartProps> = ({ crops }) => {
   );
 };
 
-export default CropBarChart;
+export default Recommender;
