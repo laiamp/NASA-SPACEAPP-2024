@@ -6,7 +6,7 @@ function Rform() {
     return (
         <div>
             <h2>Welcome to FieldFlow</h2>
-            <p>Define tu parcela!</p>
+            <p>Define your field!</p>
             <RegionFormWithMap />
         </div>
     );

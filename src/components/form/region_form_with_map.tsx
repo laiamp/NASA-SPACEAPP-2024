@@ -144,7 +144,7 @@ const RegionFormWithMap: React.FC = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Punto Superior Izquierdo: </label>
+                    <label>Point 1: </label>
                     <input
                         type="number"
                         placeholder="Latitud"
@@ -159,7 +159,7 @@ const RegionFormWithMap: React.FC = () => {
                     />
                 </div>
                 <div>
-                    <label>Punto Inferior Derecho: </label>
+                    <label>Point 2: </label>
                     <input
                         type="number"
                         placeholder="Latitud"
@@ -211,21 +211,12 @@ const RegionFormWithMap: React.FC = () => {
                     {getBounds() && <Rectangle bounds={getBounds() as L.LatLngBoundsExpression} />}
                 </MapContainer>
                 <button type="submit" disabled={!points.topLeft || !points.bottomRight}>
-                    Enviar región
+                    Send field
                 </button>
                 <button type="button" onClick={handleReset}>
-                    Resetear selección
+                    Reset form
                 </button>
             </form>
-            {/* Feed de datos enviados */}
-            <div>
-                <h3>Feed de datos enviados</h3>
-                <ul>
-                    {feed.map((data, index) => (
-                        <li key={index}>{data}</li>
-                    ))}
-                </ul>
-            </div>
         </div>
     );
 };
