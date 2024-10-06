@@ -88,7 +88,8 @@ const MapWithLayers = () => {
 
   return (
     <div>
-      <p>Open Issues</p>
+      <h1> </h1>
+      <h2>Points of interest</h2>
 
       <MapContainer center={[41.6176, 0.6200]} zoom={13} style={{ height: '400px', width: '100%' }}>
         <MapClickHandler onMapClick={addLayer} />
