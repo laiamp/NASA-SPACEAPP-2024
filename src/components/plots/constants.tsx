@@ -36,9 +36,9 @@ export class Plotline {
     }
 }
 
-export interface TemperatureData {
+export interface Data {
     date: string;
-    temperature: number;
+    value: number;
 }
 
 export interface MonthlyAverage {
