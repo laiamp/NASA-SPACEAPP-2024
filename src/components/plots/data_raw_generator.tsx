@@ -1,4 +1,4 @@
-import { MonthlyAverage, TemperatureData, Plotline } from "./constants";
+import { MonthlyAverage, Data, Plotline } from "./constants";
 
 export function generate_raw_data(data: MonthlyAverage, paleta: string[]): Plotline[] {
     const raw_data: Plotline[] = [];
@@ -13,7 +13,7 @@ export function generate_raw_data(data: MonthlyAverage, paleta: string[]): Plotl
 }
 
 
-export function calculateMonthlyAverages(data: TemperatureData[]): MonthlyAverage {
+export function calculateMonthlyAverages(data: Data[]): MonthlyAverage {
     const monthlyTotals: { [key: string]: { sum: number; count: number } } = {};
 
     data.forEach(entry => {
@@ -26,7 +26,7 @@ export function calculateMonthlyAverages(data: TemperatureData[]): MonthlyAverag
         if (!monthlyTotals[key]) {
             monthlyTotals[key] = { sum: 0, count: 0 };
         }
-        monthlyTotals[key].sum += entry.temperature;
+        monthlyTotals[key].sum += entry.value;
         monthlyTotals[key].count += 1;
     });
 

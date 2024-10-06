@@ -36,15 +36,15 @@ export class Plotline {
     }
 }
 
-export interface TemperatureData {
+export interface Data {
     date: string;
-    temperature: number;
+    value: number;
 }
 
 export interface MonthlyAverage {
     [year: number]: (number | null)[];
 }
 
-export const paleta1 = ['#243642', '#387478', '#629584', '#E2F1E7']
-export const paleta2 = ['#16423C', '#6A9C89', '#C4DAD2', '#E9EFEC']
+export const temperaturePalette = ['#FFCCCB', '#FF9999', '#FF6666', '#FF3333', '#FF0000', '#B22222'];
+export const humidityPalette = ['#A8E6CE', '#66BB6A', '#388E3C', '#2E7D32', '#1B5E20', '#004D40'];
 export const rainfallPalette = ['#003366', '#336699', '#6699CC', '#99CCFF', '#CCE5FF'];

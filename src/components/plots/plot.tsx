@@ -3,38 +3,49 @@ import Plot from 'react-plotly.js';
 
 import { generate_raw_data, calculateMonthlyAverages } from './data_raw_generator';
 
-function LineChart({title, data, paleta}) {
+function LineChart({ title, data, paleta }) {
+    // Generate the raw data using the provided color palette
     const raw_data = generate_raw_data(calculateMonthlyAverages(data), paleta);
-    const yaxis_title = title;
-    for (const data_instance of raw_data) {
-        data.push(data_instance.get_plotline_information());
-    }
+    console.log(title, raw_data);
+
+    // Update data traces with color information based on the palette
+    const plotData = raw_data.map((data_instance, index) => {
+        const color = paleta[index % paleta.length];
+
+        const plotlineInfo = data_instance.get_plotline_information();
+        return {
+            ...plotlineInfo,
+            line: {
+                color, // Assign color from the palette
+                width: 2, // Customize line width if needed
+            },
+        };
+    });
 
     return (
         <Plot
-          data={data}
-          palette={paleta}
-          config={{
-            responsive: true,
-            displayModeBar: true,
-            modeBarPosition: 'top', // Mover la barra de herramientas a la parte superior
-          }}
-          layout={{
-            autosize: true,
-            height: 160, // Altura baja del gráfico
-            width: 260,
-            margin: { t: 40, r: 10, l: 40, b: 40 }, // Ajustar márgenes
-            yaxis: {
-              title: yaxis_title,
-              tickfont: { size: 10 }, // Tamaño de la fuente de los ticks del eje Y
-              automargin: true, // Ajustar automáticamente el margen
-            },
-            xaxis: {
-              tickfont: { size: 10 }, // Tamaño de la fuente de los ticks del eje X
-              automargin: true, // Ajustar automáticamente el margen
-            },
-            showlegend: false, // Ocultar leyenda
-          }}
+            data={plotData} // Use the updated plot data with color
+            config={{
+                responsive: true,
+                displayModeBar: true,
+                modeBarPosition: 'top', // Move the toolbar to the top
+            }}
+            layout={{
+                autosize: true,
+                height: 160, // Lower chart height
+                width: 260,
+                margin: { t: 40, r: 10, l: 40, b: 40 }, // Adjust margins
+                yaxis: {
+                    title: title,
+                    tickfont: { size: 10 }, // Font size for Y-axis ticks
+                    automargin: true, // Automatically adjust margin
+                },
+                xaxis: {
+                    tickfont: { size: 10 }, // Font size for X-axis ticks
+                    automargin: true, // Automatically adjust margin
+                },
+                showlegend: true,
+            }}
         />
     );
 }
