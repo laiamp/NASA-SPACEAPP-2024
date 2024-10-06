@@ -63,58 +63,6 @@ This app is designed primarily for **farmers** who want to leverage real-time cl
 
 ---
 
-## 💾 Setup & Installation
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/farm-management-system.git
-   ```
-
-2. Navigate into the project directory:
-   ```bash
-   cd farm-management-system
-   ```
-
-3. Install the required dependencies:
-   - For the **Frontend** (React):
-     ```bash
-     cd frontend
-     npm install
-     ```
-   - For the **Backend** (Python/Flask):
-     ```bash
-     cd backend
-     pip install -r requirements.txt
-     ```
-
-4. Set up environment variables:
-   - Create a `.env` file in the root directory of the backend.
-   - Add the following variables:
-     ```
-     METEOMATICS_API_KEY=your_meteomatics_api_key
-     SUPABASE_URL=your_supabase_url
-     SUPABASE_ANON_KEY=your_supabase_anon_key
-     ```
-
-5. Run the application:
-   - For the **Backend**:
-     ```bash
-     cd backend
-     flask run
-     ```
-   - For the **Frontend**:
-     ```bash
-     cd frontend
-     npm start
-     ```
-
-6. Open your browser and visit:
-   ```
-   http://localhost:3000
-   ```
-
----
-
 ## 🌐 Usage
 
 1. **Create an account**: Sign up and input your field coordinates.
