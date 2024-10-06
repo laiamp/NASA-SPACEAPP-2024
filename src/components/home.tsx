@@ -3,13 +3,14 @@ import tomato from "./home/images/tomato.jpg";
 import corn from "./home/images/corn.png";
 import potato from "./home/images/potato.png";
 import Recommender from "./home/Recommender";
+import Rform from './form';
 
 const itemsArray = [
-  ['Item 1', 1],
-  ['Item 2', 0.4],
-  ['Item 3', 0.8],
-  ['Item 4', 0],
-  ['Item 5', 0.9],
+    ['Item 1', 1],
+    ['Item 2', 0.4],
+    ['Item 3', 0.8],
+    ['Item 4', 0],
+    ['Item 5', 0.9],
 ];
 
 function Home () {
