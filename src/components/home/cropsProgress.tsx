@@ -1,44 +1,35 @@
-// CropsProgress.js
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './CropsProgress.css'; //  de importar el CSS
 
 const getProgressColor = (progress) => {
-  if (progress < 25) return '#ff4d4d'; // Rojo
-  if (progress < 60) return '#ffcc00'; // Naranja
-  return '#4CAF50'; // Verde
+  if (progress < 25) return '#ff9999'; // Rojo más intenso
+  if (progress < 60) return '#ffdb4d'; // Naranja más intenso
+  return '#99cc99'; // Verde más intenso
 };
+
 
 const CropsProgress = ({ cropsData }) => {
   return (
-    <div>
+    <div className="crops-progress">
       {/** Progress bars with icons */}
       {cropsData.map(({ icon, label, progress }) => (
         <div
           key={label}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "row",
-            margin: '10px 0',
-          }}
+          className="crop-item"
         >
           <FontAwesomeIcon
             icon={icon}
             size="2x"
-            style={{ marginRight: '10px', color: '#333' }}
+            className="crop-icon"
           />
-          <div style={{ position: 'relative', width: '100%', height: '20px', background: '#e0e0e0', borderRadius: '5px' }}>
+          <div className="progress-container">
             <div
-              style={{
-                width: `${progress}%`,
-                height: '100%',
-                background: getProgressColor(progress),
-                borderRadius: '5px'
-              }}
+              className="progress-bar"
+              style={{ width: `${progress}%`, background: getProgressColor(progress) }}
             />
           </div>
-          <span style={{ marginLeft: '10px', color: '#333' }}>{progress}%</span>
+          <span className="progress-label">{progress}%</span>
         </div>
       ))}
     </div>

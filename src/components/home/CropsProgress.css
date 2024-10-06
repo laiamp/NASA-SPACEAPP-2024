@@ -1,0 +1,43 @@
+.crops-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos */
+  width: 80%; /* Ancho del 80% para un buen espaciado */
+  padding: 20px; /* Espaciado interno */
+  border: 2px solid #4E6A6A; /* Borde del recuadro */
+  border-radius: 10px; /* Bordes redondeados */
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+}
+
+.crop-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 10px 0; /* Espacio entre los items */
+  width: 100%; /* Ancho completo del item */
+}
+
+.crop-icon {
+  margin-right: 10px; /* Espacio a la derecha del icono */
+  color: #4E6A6A; /* Verde grisáceo para los iconos */
+}
+
+.progress-container {
+  position: relative;
+  width: 100%; /* Ancho completo */
+  height: 20px; /* Altura de la barra de progreso */
+  background: #e0e0e0; /* Color de fondo de la barra de progreso */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.progress-bar {
+  height: 100%; /* Altura completa */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.progress-label {
+  margin-left: 10px; /* Espacio a la izquierda del texto */
+  color: #4E6A6A; /* Verde grisáceo para el texto */
+}

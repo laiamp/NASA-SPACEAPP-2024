@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Navbar from './components/navbar';
 import Home from './components/home';
@@ -24,8 +23,10 @@ function App() {
 
   return (
     <div className="App">
-      <div className="content">{renderActiveTab()}</div>
-      <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
+      <div className="background">
+        <div className="content">{renderActiveTab()}</div>
+        <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
+      </div>
     </div>
   );
 }

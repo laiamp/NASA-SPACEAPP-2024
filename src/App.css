@@ -1,17 +1,27 @@
+/* Importa la fuente Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 /* Estilos globales */
 #root {
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  font-family: 'Poppins', sans-serif; /* Fuente para todo el texto */
 }
 
-/* Content que siempre se muestra encima del Navbar */
-.content {
-  padding: 2rem;
-  margin-bottom: 60px; /* Añadir espacio suficiente para el navbar en la parte inferior */
-  box-sizing: border-box;
-  max-width: 100%; /* Para que no exceda el ancho de pantalla */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif; /* Fuente moderna para los títulos */
+  color: #2B393B; /* Verde oscuro para los títulos */
+  font-weight: 600; /* Peso medio-alto para los títulos */
+  margin: 1rem 0; /* Espaciado alrededor de los encabezados */
+}
+
+p, span, a {
+  font-family: 'Poppins', sans-serif; /* Fuente para los párrafos y enlaces */
+  color: #4E6A6A; /* Verde grisáceo para el texto */
+  line-height: 1.5; /* Mejora la legibilidad */
+  font-weight: 400; /* Peso normal para el cuerpo de texto */
 }
 
 /* Navbar para pantallas pequeñas */
@@ -21,8 +31,8 @@
   left: 0;
   right: 0;
   width: 100%;
-  background-color: rgb(84, 120, 94);
-  color: white;
+  background-color: #4E764E; /* Verde oscuro y elegante */
+  color: #ffffff; /* Texto blanco para contraste */
   text-align: center;
   padding: 10px 0;
   z-index: 1000; /* Asegura que siempre esté por encima de otros elementos */
@@ -42,12 +52,13 @@
 }
 
 .navbar-link {
-  color: white;
+  color: #ffffff; /* Texto blanco para enlaces */
   text-decoration: none;
+  transition: background-color 0.3s; /* Suave transición en hover */
 }
 
 .navbar-link:hover {
-  background-color: #444;
+  background-color: rgba(255, 255, 255, 0.2); /* Efecto hover sutil */
 }
 
 /* Para pantallas grandes (>= 768px) */
@@ -78,10 +89,43 @@
     text-align: left; /* Alinea el texto a la izquierda */
   }
 
-  /* Content debe tener margen a la izquierda para dejar espacio al navbar en pantallas grandes */
   .content {
     margin-left: 200px;
     margin-bottom: 0; /* Ya no se necesita margen inferior */
     max-width: calc(100% - 200px); /* Ajusta el ancho del contenido para no sobrepasar el espacio disponible */
   }
+}
+
+/* App.css */
+.App {
+  min-height: 100vh; /* Asegúrate de que cubra toda la altura de la ventana */
+  display: flex;
+  flex-direction: column; /* Alineación vertical de los componentes */
+}
+
+.background {
+  background: linear-gradient(to bottom right, #c2d0aa, #c2d0aa); /* Fondo degradado */
+  padding: 20px; /* Padding para un poco de espacio */
+  flex: 1; /* Asegúrate de que el fondo ocupe todo el espacio disponible */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Alinea el contenido en el centro */
+  justify-content: center; /* Centra el contenido */
+  padding: 2rem; /* Espacio alrededor del contenido */
+  margin-bottom: 60px; /* Añadir espacio suficiente para el navbar en la parte inferior */
+  box-sizing: border-box; /* Para que el padding no afecte el tamaño total */
+  max-width: 100%; /* Para que no exceda el ancho de pantalla */
+}
+
+/* Estilos para los recuadros */
+.text-box {
+  border: 1px solid #4E6A6A; /* Borde del recuadro */
+  border-radius: 10px; /* Bordes redondeados */
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+  padding: 15px; /* Padding interno */
+  margin: 15px 0; /* Margen alrededor del recuadro */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
 }

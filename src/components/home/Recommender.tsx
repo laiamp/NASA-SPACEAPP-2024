@@ -10,22 +10,19 @@ const Recommender = ({ items }) => {
   };
 
   return (
-      <div>
-          {items.map(([label, value], index) => (
-              <div key={index} style={{ display: 'flex', alignItems: 'center', margin: '10px 0' }}>
-                  <span style={{ flex: 1 }}>{label}</span>
-                  <div
-                      style={{
-                          width: '50px',
-                          height: '20px',
-                          backgroundColor: getColor(value),
-                          borderRadius: '5px',
-                          marginLeft: '10px',
-                      }}
-                  />
-              </div>
-          ))}
-      </div>
+    <div className="recommender-container">
+      {items.map(([label, value], index) => (
+        <div key={index} className="recommendation-item">
+          <span className="recommendation-label">{label}</span>
+          <div
+            className="recommendation-bar"
+            style={{
+              backgroundColor: getColor(value),
+            }}
+          />
+        </div>
+      ))}
+    </div>
   );
 };
 

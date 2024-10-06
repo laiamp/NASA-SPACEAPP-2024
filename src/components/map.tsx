@@ -17,6 +17,7 @@ function Map() {
       <div className="heatmap">
         <Heatmap data={data} />
       </div>
+      <h2>Points of interest </h2>
       <div className="map-with-layers">
         <MapWithLayers />
       </div>

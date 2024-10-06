@@ -1,0 +1,17 @@
+/* TextBox.css */
+.text-box {
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin: 15px 0; /* Espacio alrededor del recuadro */
+    max-width: 600px; /* Ancho máximo */
+    text-align: left; /* Alinear el texto a la izquierda */
+  }
+  
+  .text-box-title {
+    color: #2B393B; /* Color del título */
+    margin: 0; /* Sin margen */
+    font-size: 1.5rem; /* Tamaño del título */
+  }
+  

@@ -65,7 +65,7 @@ const MapWithLayers = () => {
         console.log('Error inserting marker:', error);
       } else {
         // Add the new layer with the returned data from Supabase
-        setLayers([...layers, newLayer ]);
+        setLayers([...layers, newLayer]);
       }
     }
   };
@@ -89,36 +89,44 @@ const MapWithLayers = () => {
   return (
     <div>
       <h1> </h1>
-      <h2>Points of interest</h2>
+      <div 
+        style={{
+          height: '400px', 
+          width: '100%', 
+          borderRadius: '15px',   // Bordes redondeados
+          overflow: 'hidden',     // Asegura que el contenido respete los bordes redondeados
+          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', // Sombra sutil
+        }}
+      >
+        <MapContainer center={[41.6176, 0.6200]} zoom={13} style={{ height: '100%', width: '100%' }}>
+          <MapClickHandler onMapClick={addLayer} />
 
-      <MapContainer center={[41.6176, 0.6200]} zoom={13} style={{ height: '400px', width: '100%' }}>
-        <MapClickHandler onMapClick={addLayer} />
+          <LayersControl position="topright">
+            <BaseLayer checked name="OpenStreetMap">
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              />
+            </BaseLayer>
 
-        <LayersControl position="topright">
-          <BaseLayer checked name="OpenStreetMap">
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            />
-          </BaseLayer>
-
-          {layers.length > 0 && layers.map((layer) => (
-            <Overlay key={layer.timestamp} checked name={layer.name}>
-              <LayerGroup>
-                <Marker position={[layer.lat, layer.lon]}>
-                  <Popup>
-                    <strong>{layer.name}</strong>
-                    <br />
-                    Coordinates: {layer.lat.toFixed(4)}, {layer.lon.toFixed(4)}
-                    <br />
-                    <button onClick={(e) => deleteLayer(layer.timestamp, e)}>Delete Marker</button>
-                  </Popup>
-                </Marker>
-              </LayerGroup>
-            </Overlay>
-          ))}
-        </LayersControl>
-      </MapContainer>
+            {layers.length > 0 && layers.map((layer) => (
+              <Overlay key={layer.timestamp} checked name={layer.name}>
+                <LayerGroup>
+                  <Marker position={[layer.lat, layer.lon]}>
+                    <Popup>
+                      <strong>{layer.name}</strong>
+                      <br />
+                      Coordinates: {layer.lat.toFixed(4)}, {layer.lon.toFixed(4)}
+                      <br />
+                      <button onClick={(e) => deleteLayer(layer.timestamp, e)}>Delete Marker</button>
+                    </Popup>
+                  </Marker>
+                </LayerGroup>
+              </Overlay>
+            ))}
+          </LayersControl>
+        </MapContainer>
+      </div>
     </div>
   );
 };

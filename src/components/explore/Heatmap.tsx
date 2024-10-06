@@ -58,11 +58,7 @@ function Heatmap() {
       z: data.map(item => item.z),         // Valor de humedad (o cualquier dato que desees mapear)
       colorscale: colorscale, // Aplica la escala de colores
       radius: radius,        // Aplica el radio
-      showscale: true,       // Muestra la escala de colores
-      colorbar: {
-        tickvals: [0, 1],    // Valores de los ticks (sin superposición)
-        ticktext: ['Baja', 'Alta'], // Textos en los ticks
-      }
+      showscale: false       // Oculta la escala de colores
     }];
 
     if (plotRef.current) {
@@ -98,8 +94,17 @@ function Heatmap() {
         style={{ width: '100%', marginBottom: '10px' }}
       />
       
-      {/* Mapa de calor */}
-      <div ref={plotRef} style={{ width: '100%', height: 'auto' }}></div>
+      {/* Mapa de calor con estilo en línea */}
+      <div 
+        ref={plotRef} 
+        style={{
+          width: '100%', 
+          height: 'auto',
+          borderRadius: '15px', // Aplica bordes redondeados
+          overflow: 'hidden', // Asegura que el contenido respete el borde redondeado
+          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', // Sombra sutil
+        }}
+      ></div>
     </div>
   );
 }
