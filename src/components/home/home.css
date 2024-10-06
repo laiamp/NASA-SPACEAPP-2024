@@ -1,0 +1,15 @@
+.light-green-text {
+    appearance: none; /* Eliminar el estilo predeterminado */
+    height: 20px; /* Altura de la barra */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #e0e0e0; /* Color de fondo de la barra */
+  }
+  
+  .light-green-text::-webkit-progress-value {
+    background-color: transparent; /* No color para el valor predeterminado */
+  }
+  
+  .light-green-text::-moz-progress-bar {
+    background-color: transparent; /* No color para el valor predeterminado en Firefox */
+  }
+  
