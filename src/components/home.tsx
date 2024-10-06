@@ -15,7 +15,7 @@ const itemsArray = [
 function Home () {
   return (
     <div>
-      <h2>Welcome back, X</h2>
+      <h2>Welcome back, Luis</h2>
       <p>Bienvenido a la página de inicio.</p>
       <div
         style={{
