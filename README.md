@@ -1,50 +1,136 @@
-# React + TypeScript + Vite
+# NASA Space Apps 2024: Leveraging Earth Observation Data for Informed Agricultural Decision-Making
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### WebApp: Farm Management System for Smarter Farming Decisions
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Overview
 
-## Expanding the ESLint configuration
+This web application was developed as part of the NASA Space Apps 2024 Challenge, "Leveraging Earth Observation Data for Informed Agricultural Decision-Making." Our app is designed to support farmers in managing their fields efficiently, making data-driven decisions with the help of Earth observation data.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+By integrating climate data, weather forecasts, and crop progress tracking, this tool equips farmers with the necessary information to make better-informed agricultural decisions, ultimately improving yields and minimizing risks.
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🧑‍🌾 Intended Users
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+This app is designed primarily for **farmers** who want to leverage real-time climate data and track the health and progress of their crops. It’s tailored to help both small-scale and large-scale farmers manage their fields effectively.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+---
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## 🌟 Key Features
+
+1. **🌾 Crop Recommender**
+   - Suggests the best crops to grow based on current climate data, ensuring farmers choose crops suited for local conditions.
+   - Integrates real-time weather data and Earth observation insights to suggest optimal crops for the farmer's region.
+
+2. **🗺️ Marker Creation**
+   - Farmers can create **markers** on a map to note down essential information.
+   - Markers can be used to set reminders, create warnings, store relevant data, or highlight specific areas of the field.
+   - Example use cases: noting areas requiring irrigation, pest management, or field observations.
+
+3. **📊 Weather & Climate Dashboard**
+   - Powered by the **Meteomatics API**, farmers can access comprehensive weather and climate data.
+   - Provides real-time and historical data on rainfall, temperature, humidity, and more.
+   - Users can explore and analyze this data to anticipate weather changes, ensuring timely field interventions.
+
+4. **👤 Accounts and Field Management**
+   - New users create an account and input the coordinates of their field(s).
+   - Fields and custom data (like markers) are saved in a **Supabase database**, allowing the user to access their personalized data when they log back in.
+   - No need to re-enter field information or previously stored markers after logging in.
+
+5. **📈 Crop Progress Overview**
+   - Farmers can track the progress of their crops over time, with detailed insights into how their plants are growing.
+   - Data-driven recommendations are provided based on crop health and environmental conditions.
+
+6. **🌍 Heatmap for Moisture and Humidity**
+   - Visualize **humidity** and **moisture** levels across different parts of the field using an interactive heatmap.
+   - Helps identify areas with insufficient moisture and optimize irrigation management.
+
+---
+
+## 🔧 Tech Stack
+
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js, Express.js
+- **Database**: Supabase (PostgreSQL)
+- **APIs**: Meteomatics API for weather and climate data
+- **Map & Geospatial Tools**: Leaflet.js for interactive maps and markers
+
+---
+
+## 💾 Setup & Installation
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/farm-management-system.git
+   ```
+
+2. Navigate into the project directory:
+   ```bash
+   cd farm-management-system
+   ```
+
+3. Install the required dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Set up environment variables:
+   - Create a `.env` file in the root directory.
+   - Add the following variables:
+     ```
+     METEOMATICS_API_KEY=your_meteomatics_api_key
+     SUPABASE_URL=your_supabase_url
+     SUPABASE_ANON_KEY=your_supabase_anon_key
+     ```
+
+5. Run the application:
+   ```bash
+   npm start
+   ```
+
+6. Open your browser and visit:
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## 🌐 Usage
+
+1. **Create an account**: Sign up and input your field coordinates.
+2. **Set markers**: Place markers on your map for reminders or notes.
+3. **Use the dashboard**: Access climate data and explore trends.
+4. **View crop progress**: Track your crops and analyze growth patterns.
+5. **Utilize the heatmap**: Visualize moisture and humidity data in your fields.
+
+---
+
+## 📅 Future Enhancements
+
+- Integration with drone or satellite imagery to provide advanced insights into crop health.
+- Soil quality analysis features for better crop recommendations.
+- AI-based predictive models to forecast crop yields based on historical data.
+
+---
+
+## 🌍 Contribution
+
+We welcome contributions to improve this project! Please submit a pull request or open an issue to suggest changes.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🚀 Team
+
+- **Developer**: Your Name
+- **Designer**: Your Teammate
+- **Data Specialist**: Another Teammate
+
+Thank you for checking out our submission! 🌾
