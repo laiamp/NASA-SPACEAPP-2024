@@ -13,7 +13,9 @@ USERNAME = 'salasis_pau'
 PASSWORD = 'tTnF8Hs220'
 TIME_FORMAT = '%Y-%m-%dT%H:%M:%SZ'
 DICT_FEATURE_APICODE = {
-    'temperature': 't_0m:C'
+    'temperature': 't_0m:C',
+    'relative humidity': 'relative_humidity_mean_2m_24h:p',
+    'precipitation': 'precip_24h:mm'
 }
 
 Point: TypeAlias = tuple[float, float]
@@ -226,7 +228,7 @@ if __name__ == '__main__':
             top_right=(41.600273, 0.812349),
             bot_left=(41.569333, 0.722734)
         ),
-        feature='temperature',
+        feature='precipitation',
         start_date=datetime(2021, 1, 1),
         end_date=datetime(2024, 10, 8),
         interval_hours=24,
