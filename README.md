@@ -89,7 +89,7 @@ We welcome contributions to improve this project! Please submit a pull request o
 
 ## 📜 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ---
 
