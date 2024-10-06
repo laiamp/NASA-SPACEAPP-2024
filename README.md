@@ -1,7 +1,3 @@
-Certainly! Here’s the updated README with the changes you requested:
-
----
-
 # NASA Space Apps 2024: Leveraging Earth Observation Data for Informed Agricultural Decision-Making
 
 ### WebApp: Farm Management System for Smarter Farming Decisions
