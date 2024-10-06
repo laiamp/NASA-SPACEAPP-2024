@@ -1,8 +1,0 @@
-/* styles.css */
-.map-container {
-    display: flex; /* Usa flexbox para alinear los componentes */
-    flex-direction: column; /* Alineación horizontal */
-    align-items: flex-start; /* Alinea los componentes en la parte superior */
-  }
-  
-  

@@ -1,19 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import Plotly from 'plotly.js-dist';
 
-
 const colorscale = [
-  [0, 'rgb(255, 0, 0)'],   // Rojo (baja humedad)
-  [1, 'rgb(173, 216, 230)'] // Azul claro (alta humedad)
+  [0, 'rgb(255, 0, 0)'],   // Red (low humidity)
+  [1, 'rgb(173, 216, 230)'] // Light blue (high humidity)
 ];
 
 const radius = 50;
 const type = "densitymap";
 
-
 function Heatmap({ data }) {
   const plotRef = useRef(null);
-
 
   useEffect(() => {
     const layout = {
@@ -21,34 +18,34 @@ function Heatmap({ data }) {
         style: 'light', 
         center: { lat: 41.6176, lon: 0.6200 },
         zoom: 15,
-        width: 100,
-        height: 100
       },
-
+      width: 300,  // Width you want for the map
+      height: 300, // Adjust height based on width to preserve proportions
+      margin: { t: 0, l: 0, r: 0, b: 0 }, // Reduce margins for better fit
     };
 
-    // Crear una copia de los datos y aplicar las propiedades constantes
+    // Create a copy of the data and apply constant properties
     const plotData = data.map((item) => ({
       ...item,
-      type: type,          // Aplica el tipo de gráfico
-      colorscale: colorscale, // Aplica la colorscale
-      radius: radius        // Aplica el radio
+      type: type,          // Apply the chart type
+      colorscale: colorscale, // Apply the colorscale
+      radius: radius        // Apply the radius
     }));
 
-    // Verifica si plotRef.current está definido
+    // Check if plotRef.current is defined
     if (plotRef.current) {
       Plotly.newPlot(plotRef.current, plotData, layout);
     }
 
-    // Limpiar la gráfica al desmontar el componente
+    // Cleanup plot on component unmount
     return () => {
       if (plotRef.current) {
         Plotly.purge(plotRef.current);
       }
     };
-  }, [data, colorscale, radius, type]); // Dependencias de useEffect
+  }, [data]);
 
-  return <div ref={plotRef}></div>;
+  return <div ref={plotRef} style={{ width: '100%', height: 'auto' }}></div>;
 }
 
 export default Heatmap;

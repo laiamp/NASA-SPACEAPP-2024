@@ -14,8 +14,12 @@ function Map() {
 
   return (
     <div className="map-container">
-      <Heatmap data={data}/>
-      <MapWithLayers/>
+      <div className="heatmap">
+        <Heatmap data={data} />
+      </div>
+      <div className="map-with-layers">
+        <MapWithLayers />
+      </div>
     </div>
   );
 };
