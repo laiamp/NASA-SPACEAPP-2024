@@ -1,6 +1,6 @@
 # NASA Space Apps 2024: Leveraging Earth Observation Data for Informed Agricultural Decision-Making
 
-### WebApp: Farm Management System for Smarter Farming Decisions
+### WebApp: FieldFlow - Farm Management System for Smarter Farming Decisions
 
 ---
 
