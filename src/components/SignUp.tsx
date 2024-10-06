@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import logoSrc from "./logo.jpeg";
 interface SignInPageProps {
   onSignIn: (email: string, password: string) => void;
 }
@@ -26,12 +26,8 @@ const SignUpPage: React.FC<SignInPageProps> = ({ onSignIn }) => {
       <div style={styles.formContainer}>
         {/* Logo and Company Name */}
         <div style={styles.header}>
-          <img
-            src="https://via.placeholder.com/100"
-            alt="Company Logo"
-            style={styles.logo}
-          />
-          <h1 style={styles.companyName}>My Company</h1>
+          <img src={logoSrc} alt="FieldFlow" style={styles.logo} />
+          <h1 style={styles.companyName}>FieldFlow</h1>
         </div>
 
         {/* Sign In Form */}
@@ -79,13 +75,11 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     height: "100vh",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "white",
   },
   formContainer: {
     padding: "40px",
-    backgroundColor: "#fff",
-    borderRadius: "8px",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+    backgroundColor: "white",
     textAlign: "center",
     width: "100%",
     maxWidth: "400px",
@@ -117,9 +111,11 @@ const styles = {
   input: {
     width: "100%",
     padding: "10px",
-    border: "1px solid #ccc",
+    border: "1px solid black",
     borderRadius: "4px",
     fontSize: "16px",
+    backgroundColor: "white",
+    color: "black",
   },
   error: {
     color: "red",
@@ -128,7 +124,7 @@ const styles = {
   button: {
     width: "100%",
     padding: "12px",
-    backgroundColor: "#007BFF",
+    backgroundColor: "#54785e",
     color: "#fff",
     border: "none",
     borderRadius: "4px",

@@ -19,8 +19,8 @@ const dates = [
 const defaultLayout = {
   map: { 
     style: 'light', 
-    center: { lat: 41.6176, lon: 0.6200 },  // Coordenadas de Lleida
-    zoom: 10,  // Zoom adecuado para una ciudad
+    center: { lat: 41.7223, lon: 0.7432 },  // Coordenadas de Lleida
+    zoom: 13,  // Zoom adecuado para una ciudad
   },
   width: 300,
   height: 300,
@@ -34,9 +34,9 @@ function Heatmap() {
 
   useEffect(() => {
     const fetchDataForDate = (date) => {
-      const baseLat = 41.6176;
-      const baseLon = 0.6200;
-      const newData = Array.from({ length: 10 }, () => ({
+      const baseLat = 41.7223;
+      const baseLon = 0.7432;
+      const newData = Array.from({ length: 50 }, () => ({
         lat: baseLat + Math.random() * 0.01 - 0.005,
         lon: baseLon + Math.random() * 0.01 - 0.005,
         z: Math.random()

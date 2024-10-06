@@ -98,7 +98,7 @@ const MapWithLayers = () => {
           boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', // Sombra sutil
         }}
       >
-        <MapContainer center={[41.6176, 0.6200]} zoom={13} style={{ height: '100%', width: '100%' }}>
+        <MapContainer center={[41.7223, 0.7432]} zoom={14} style={{ height: '100%', width: '100%' }}>
           <MapClickHandler onMapClick={addLayer} />
 
         <LayersControl position="topright">

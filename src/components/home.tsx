@@ -9,25 +9,26 @@ const cropsData = [
     { icon: faAppleAlt, label: 'Tomato', progress: 24 }
 ];
 
-const itemsArray = [
-    ['Item 1', 1],
-    ['Item 2', 0.4],
-    ['Item 3', 0.8],
-    ['Item 4', 0],
-    ['Item 5', 0.9],
+const cropData = [
+  { name: 'Corn', compatibility: 0.1 },
+  { name: 'Wheat', compatibility: 0.7 },
+  { name: 'Rice', compatibility: 0.8 },
+  { name: 'Soybeans', compatibility: 0.5 },
+  { name: 'Barley', compatibility: 0.6 },
 ];
 
 function Home() {
     return (
         <div>
             <h2 style={{ color: '#333' }}>Welcome back, Luis</h2>
-            <p style={{ color: '#555' }}>Bienvenido a la página de inicio.</p>
+            <p style={{ color: '#555' }}>Here are your crops.</p>
 
             <CropsProgress cropsData={cropsData} /> {/* Usa el nuevo componente */}
 
+            <h1> </h1>
+
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginTop: '20px' }}>
-                <h2 style={{ color: '#333' }}>Crop Compatibility</h2>
-                <Recommender items={itemsArray} />
+                <Recommender crops={cropData} />
             </div>
         </div>
     );

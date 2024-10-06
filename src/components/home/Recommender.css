@@ -1,31 +1,30 @@
 .recommender-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra los elementos */
-    width: 80%; /* Ancho del 80% para un buen espaciado */
-    padding: 20px; /* Espaciado interno */
-    border: 2px solid #4E6A6A; /* Borde del recuadro */
-    border-radius: 10px; /* Bordes redondeados */
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
-  }
-  
-  .recommendation-item {
-    display: flex;
-    align-items: center;
-    margin: 10px 0; /* Espacio entre los items */
-    width: 100%; /* Ancho completo del item */
-  }
-  
-  .recommendation-label {
-    flex: 1; /* Ocupa el espacio restante */
-    color: #4E6A6A; /* Verde grisáceo para el texto */
-  }
-  
-  .recommendation-bar {
-    width: 50px;
-    height: 20px;
-    border-radius: 5px; /* Bordes redondeados */
-    margin-left: 10px; /* Espacio a la izquierda del color */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos */
+  width: 80%; /* Ancho del 80% para un buen espaciado */
+  padding: 20px; /* Espaciado interno */
+  border: 2px solid #4E6A6A; /* Borde del recuadro */
+  border-radius: 10px; /* Bordes redondeados */
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+}
+
+.recommendation-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0; /* Espacio entre los items */
+  width: 100%; /* Ancho completo del item */
+}
+
+.recommendation-label {
+  flex: 1; /* Ocupa el espacio restante */
+  color: #4E6A6A; /* Verde grisáceo para el texto */
+}
+
+.recommendation-bar {
+  width: 50px;
+  height: 20px;
+  border-radius: 5px; /* Bordes redondeados */
+  margin-left: 10px; /* Espacio a la izquierda del color */
+}

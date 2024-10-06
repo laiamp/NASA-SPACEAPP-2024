@@ -143,36 +143,7 @@ const RegionFormWithMap: React.FC = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Point 1: </label>
-                    <input
-                        type="number"
-                        placeholder="Latitud"
-                        value={points.topLeft ? points.topLeft.lat : ''}
-                        onChange={(e) => handleCoordinateChange('topLeft', e.target.value, points.topLeft?.lon.toString() || '')}
-                    />
-                    <input
-                        type="number"
-                        placeholder="Longitud"
-                        value={points.topLeft ? points.topLeft.lon : ''}
-                        onChange={(e) => handleCoordinateChange('topLeft', points.topLeft?.lat.toString() || '', e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label>Point 2: </label>
-                    <input
-                        type="number"
-                        placeholder="Latitud"
-                        value={points.bottomRight ? points.bottomRight.lat : ''}
-                        onChange={(e) => handleCoordinateChange('bottomRight', e.target.value, points.bottomRight?.lon.toString() || '')}
-                    />
-                    <input
-                        type="number"
-                        placeholder="Longitud"
-                        value={points.bottomRight ? points.bottomRight.lon : ''}
-                        onChange={(e) => handleCoordinateChange('bottomRight', points.bottomRight?.lat.toString() || '', e.target.value)}
-                    />
-                </div>
+            
 
 
                 {/* Mapa */}
