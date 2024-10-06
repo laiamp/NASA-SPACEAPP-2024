@@ -2,14 +2,14 @@ import os
 from datetime import datetime
 from flask import Flask
 
-
-def create_app(test_config=None):
+def create_app():
     # create and configure the app
     app = Flask(__name__)
-
-    # ensure the instance folder exists
+    app.config.from_mapping(
+        SECRET_KEY='dev'
+    )
     try:
-        os.makedirs(app.instance_path)
+        os.makedirs(app.instance_path, exist_ok=True) 
     except OSError:
         pass
 
@@ -18,10 +18,7 @@ def create_app(test_config=None):
     def hello():
         return str(datetime(2024, 10, 8))
 
-    # from . import data
-    # app.register_blueprint(data.bp)
-    # from . import auth
-    # app.register_blueprint(auth.bp)
-    
-    
+    from . import data
+    app.register_blueprint(data.bp)
+
     return app
