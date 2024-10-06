@@ -1,4 +1,4 @@
-export const value_data = [
+export const temperature_data = [
     {
         "date": "2021-01-01T00:00:00+00:00",
         "value": 4.4
@@ -3012,7 +3012,7 @@ export const value_data = [
         "value": -4.1
     },
     {
-        "date": "2023-01-24T00:00:00+00:00",
+        "date": "2023-01-x24T00:00:00+00:00",
         "value": -2.2
     },
     {
