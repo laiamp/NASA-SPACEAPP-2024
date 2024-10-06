@@ -95,8 +95,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## 🚀 Team Infinite_Loopers
 
-- **Developer**: Your Name
-- **Designer**: Your Teammate
-- **Data Specialist**: Another Teammate
+- Alberto Bechara, Alex Estape, Laia Mogas, Luis Gutiérrez, Pau Salas
 
 Thank you for checking out our submission! 🌾
