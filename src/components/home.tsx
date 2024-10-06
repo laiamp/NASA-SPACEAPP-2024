@@ -5,14 +5,14 @@ import potato from "./home/images/potato.png";
 import Recommender from "./home/Recommender";
 
 const itemsArray = [
-  ['Item 1', 1],
-  ['Item 2', 0.4],
-  ['Item 3', 0.8],
-  ['Item 4', 0],
-  ['Item 5', 0.9],
+  ["Item 1", 1],
+  ["Item 2", 0.4],
+  ["Item 3", 0.8],
+  ["Item 4", 0],
+  ["Item 5", 0.9],
 ];
 
-function Home () {
+function Home() {
   return (
     <div>
       <h2>Welcome back, X</h2>
@@ -65,12 +65,19 @@ function Home () {
         <progress value="42" max="100" className="light-green-text"></progress>
         42%
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-    <h2>Crop Compatibility</h2>
-    <Recommender items={itemsArray}/>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
+        <h2>Crop Compatibility</h2>
+        <Recommender items={itemsArray} />
+      </div>
     </div>
-     </div>
   );
-};
+}
 
 export default React.memo(Home);
