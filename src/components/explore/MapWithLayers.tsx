@@ -88,7 +88,7 @@ const MapWithLayers = () => {
 
   return (
     <div>
-      <p>Click on the map to add a marker layer. You can delete or name each marker from the popup.</p>
+      <p>Open Issues</p>
 
       <MapContainer center={[41.6176, 0.6200]} zoom={13} style={{ height: '400px', width: '100%' }}>
         <MapClickHandler onMapClick={addLayer} />
