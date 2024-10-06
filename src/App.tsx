@@ -1,23 +1,22 @@
-// src/App.js
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import { useState } from "react";
 import Navbar from './components/navbar';
 import Home from './components/home';
-import Water from './components/water';
-import Explore from './components/explore';
+import Plots from './components/plots';
+import Map from './components/map';
 import './App.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTab] = useState("home");
 
   const renderActiveTab = () => {
     switch (activeTab) {
-      case 'home':
+      case "home":
         return <Home />;
-      case 'water':
-        return <Water />;
-      case 'explore':
-        return <Explore />;
+      case "map":
+        return <Map />;
+      case "plots":
+        return <Plots />;
       default:
         return <Home />;
     }
@@ -25,9 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="content">
-        {renderActiveTab()}
-      </div>
+      <div className="content">{renderActiveTab()}</div>
       <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
     </div>
   );

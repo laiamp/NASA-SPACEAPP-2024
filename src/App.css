@@ -1,42 +1,87 @@
+/* Estilos globales */
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Content que siempre se muestra encima del Navbar */
+.content {
+  padding: 2rem;
+  margin-bottom: 60px; /* Añadir espacio suficiente para el navbar en la parte inferior */
+  box-sizing: border-box;
+  max-width: 100%; /* Para que no exceda el ancho de pantalla */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Navbar para pantallas pequeñas */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgb(84, 120, 94);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 1000; /* Asegura que siempre esté por encima de otros elementos */
+}
+
+.navbar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar-item {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-link:hover {
+  background-color: #444;
+}
+
+/* Para pantallas grandes (>= 768px) */
+@media (min-width: 768px) {
+  .navbar {
+    position: fixed;
+    bottom: auto; /* Ya no en la parte inferior */
+    left: 0;
+    top: 0; /* Fija en la parte izquierda */
+    width: 200px; /* Ancho fijo para el navbar vertical */
+    height: 100%; /* Ocupa toda la altura de la pantalla */
+    display: flex;
+    flex-direction: column; /* El navbar en sí será una columna */
+    text-align: left;
+    padding: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbar-list {
+    flex-direction: column; /* Los elementos ahora están apilados verticalmente */
+    justify-content: flex-start; /* Alinea los elementos al inicio */
+    height: 100%; /* Asegura que ocupe toda la altura */
+    align-items: stretch; /* Asegura que los elementos ocupen todo el ancho del navbar */
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .navbar-item {
+    padding: 20px; /* Mayor espacio entre los elementos */
+    width: 100%; /* Asegura que el item ocupe todo el ancho del navbar */
+    text-align: left; /* Alinea el texto a la izquierda */
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  /* Content debe tener margen a la izquierda para dejar espacio al navbar en pantallas grandes */
+  .content {
+    margin-left: 200px;
+    margin-bottom: 0; /* Ya no se necesita margen inferior */
+    max-width: calc(100% - 200px); /* Ajusta el ancho del contenido para no sobrepasar el espacio disponible */
+  }
 }
