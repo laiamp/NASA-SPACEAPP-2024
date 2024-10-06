@@ -47,3 +47,4 @@ export interface MonthlyAverage {
 
 export const paleta1 = ['#243642', '#387478', '#629584', '#E2F1E7']
 export const paleta2 = ['#16423C', '#6A9C89', '#C4DAD2', '#E9EFEC']
+export const rainfallPalette = ['#003366', '#336699', '#6699CC', '#99CCFF', '#CCE5FF'];

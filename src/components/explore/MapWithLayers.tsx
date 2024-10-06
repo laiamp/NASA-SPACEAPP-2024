@@ -17,10 +17,11 @@ L.Icon.Default.mergeOptions({
 
 const { BaseLayer, Overlay } = LayersControl;
 
+// Component to handle map click event
 const MapClickHandler = ({ onMapClick }) => {
   useMapEvents({
     click: (e) => {
-      onMapClick(e.latlng);
+      onMapClick(e.latlng); // Pass the clicked location (lat, lng) back to parent
     },
   });
   return null;
@@ -29,6 +30,7 @@ const MapClickHandler = ({ onMapClick }) => {
 const MapWithLayers = () => {
   const [layers, setLayers] = useState([]);
 
+  // Fetch the markers from the Supabase database
   useEffect(() => {
     const fetchData = async () => {
       const { data, error } = await supabase
@@ -49,6 +51,7 @@ const MapWithLayers = () => {
     const markerName = window.prompt('Enter a name for the marker:', 'My Marker');
     if (markerName) {
       const newLayer = {
+        timestamp: Date.now(),
         lat: latlng.lat,
         lon: latlng.lng,
         name: markerName,
@@ -56,27 +59,30 @@ const MapWithLayers = () => {
       const { error, data } = await supabase
         .from('landmarks')
         .insert(newLayer)
-        .select('*');
+        .select(); // Select so we can get the ID back
 
       if (error) {
         console.log('Error inserting marker:', error);
       } else {
+        // Add the new layer with the returned data from Supabase
         setLayers([...layers, newLayer ]);
       }
     }
   };
 
-  const deleteLayer = async (id, e) => {
+  // Function to delete a marker by its id
+  const deleteLayer = async (timestamp, e) => {
+    console.log(timestamp);
     e.stopPropagation(); // Prevent the click event from bubbling up to the map
     const { error } = await supabase
       .from('landmarks')
       .delete()
-      .eq('id', id);
+      .eq('timestamp', timestamp);
 
     if (error) {
       console.log('Error deleting marker:', error);
     } else {
-      setLayers(layers.filter(layer => layer.id !== id));
+      setLayers(layers.filter(layer => layer.timestamp !== timestamp));
     }
   };
 
@@ -84,7 +90,7 @@ const MapWithLayers = () => {
     <div>
       <p>Click on the map to add a marker layer. You can delete or name each marker from the popup.</p>
 
-      <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: '200px', width: '100%' }}>
+      <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: '400px', width: '100%' }}>
         <MapClickHandler onMapClick={addLayer} />
 
         <LayersControl position="topright">
@@ -96,7 +102,7 @@ const MapWithLayers = () => {
           </BaseLayer>
 
           {layers.length > 0 && layers.map((layer) => (
-            <Overlay key={layer.id} checked name={layer.name}>
+            <Overlay key={layer.timestamp} checked name={layer.name}>
               <LayerGroup>
                 <Marker position={[layer.lat, layer.lon]}>
                   <Popup>
@@ -104,7 +110,7 @@ const MapWithLayers = () => {
                     <br />
                     Coordinates: {layer.lat.toFixed(4)}, {layer.lon.toFixed(4)}
                     <br />
-                    <button onClick={(e) => deleteLayer(layer.id, e)}>Delete Marker</button>
+                    <button onClick={(e) => deleteLayer(layer.timestamp, e)}>Delete Marker</button>
                   </Popup>
                 </Marker>
               </LayerGroup>

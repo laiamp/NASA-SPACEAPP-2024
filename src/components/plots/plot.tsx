@@ -1,13 +1,11 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
-import { datos } from './datos';
-import { paleta1 } from './constants';
+
 import { generate_raw_data, calculateMonthlyAverages } from './data_raw_generator';
 
-function LineChart() {
-    const raw_data = generate_raw_data(calculateMonthlyAverages(datos), paleta1);
-    const yaxis_title = 'temperature';
-    const data: Record<string, any>[] = [];
+function LineChart({title, data, paleta}) {
+    const raw_data = generate_raw_data(calculateMonthlyAverages(data), paleta);
+    const yaxis_title = title;
     for (const data_instance of raw_data) {
         data.push(data_instance.get_plotline_information());
     }
@@ -15,6 +13,7 @@ function LineChart() {
     return (
         <Plot
           data={data}
+          palette={paleta}
           config={{
             responsive: true,
             displayModeBar: true,
