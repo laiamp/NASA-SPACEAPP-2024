@@ -1,3 +1,4 @@
+/* Navbar en la parte inferior para pantallas pequeñas */
 .navbar {
   position: fixed;
   bottom: 0;
@@ -25,20 +26,48 @@
 
 .navbar-link {
   color: white;
-  text-decoration: none; /* Sin subrayado */
+  text-decoration: none;
 }
 
 .navbar-link:hover {
   background-color: #444;
 }
 
-/* Para ocultar el navbar en pantallas grandes */
+/* Para pantallas grandes (>= 768px) */
 @media (min-width: 768px) {
   .navbar {
-    display: none; /* Oculta el navbar en pantallas grandes */
+    position: fixed;
+    bottom: auto; /* Ya no en la parte inferior */
+    left: 0;
+    top: 0; /* Fija en la parte izquierda */
+    width: 120px; /* Ajustar el ancho del navbar a 120px */
+    height: 100%; /* Ocupa toda la altura de la pantalla */
+    display: flex;
+    flex-direction: column; /* El navbar en sí será una columna */
+    text-align: left;
+    padding: 0;
+  }
+
+  .navbar-list {
+    flex-direction: column; /* Los elementos ahora están apilados verticalmente */
+    justify-content: flex-start; /* Alinea los elementos al inicio */
+    height: 100%; /* Asegura que ocupe toda la altura */
+    align-items: stretch; /* Asegura que los elementos ocupen todo el ancho del navbar */
+  }
+
+  .navbar-item {
+    padding: 10px; /* Ajuste del espacio entre los elementos */
+    width: 100%; /* Asegura que el item ocupe todo el ancho del navbar */
+    text-align: left; /* Alinea el texto a la izquierda */
+  }
+
+  .content {
+    margin-left: 120px; /* Ajusta el margen izquierdo para compensar el nuevo ancho */
+    margin-bottom: 0; /* Ya no se necesita margen inferior */
   }
 }
 
+/* Para pantallas pequeñas */
 .content {
   margin-bottom: 60px; /* Para que el contenido no quede detrás del navbar */
 }

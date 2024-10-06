@@ -17,11 +17,10 @@ L.Icon.Default.mergeOptions({
 
 const { BaseLayer, Overlay } = LayersControl;
 
-// Component to handle map click event
 const MapClickHandler = ({ onMapClick }) => {
   useMapEvents({
     click: (e) => {
-      onMapClick(e.latlng); // Pass the clicked location (lat, lng) back to parent
+      onMapClick(e.latlng);
     },
   });
   return null;
@@ -30,7 +29,6 @@ const MapClickHandler = ({ onMapClick }) => {
 const MapWithLayers = () => {
   const [layers, setLayers] = useState([]);
 
-  // Fetch the markers from the Supabase database
   useEffect(() => {
     const fetchData = async () => {
       const { data, error } = await supabase
@@ -58,18 +56,16 @@ const MapWithLayers = () => {
       const { error, data } = await supabase
         .from('landmarks')
         .insert(newLayer)
-        .select(); // Select so we can get the ID back
+        .select('*');
 
       if (error) {
         console.log('Error inserting marker:', error);
       } else {
-        // Add the new layer with the returned data from Supabase
         setLayers([...layers, newLayer ]);
       }
     }
   };
 
-  // Function to delete a marker by its id
   const deleteLayer = async (id, e) => {
     e.stopPropagation(); // Prevent the click event from bubbling up to the map
     const { error } = await supabase
@@ -88,7 +84,7 @@ const MapWithLayers = () => {
     <div>
       <p>Click on the map to add a marker layer. You can delete or name each marker from the popup.</p>
 
-      <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: '400px', width: '100%' }}>
+      <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: '200px', width: '100%' }}>
         <MapClickHandler onMapClick={addLayer} />
 
         <LayersControl position="topright">

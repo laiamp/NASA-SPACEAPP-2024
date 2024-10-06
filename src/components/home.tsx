@@ -1,12 +1,61 @@
-import React from 'react';
-import ScatterPlot from './home/plot';
+import React from "react";
+import tomato from "./home/images/tomato.jpg";
+import corn from "./home/images/corn.png";
+import potato from "./home/images/potato.png";
 
-const Home = () => {
+function Home () {
   return (
     <div>
-      <h2>Inicio</h2>
+      <h2>Welcome back, X</h2>
       <p>Bienvenido a la página de inicio.</p>
-      <ScatterPlot/>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "row",
+        }}
+      >
+        <img
+          src={tomato}
+          alt="Watering_can"
+          style={{ width: "60px", height: "60px" }}
+        />
+        <progress value="42" max="100" className="light-green-text"></progress>
+        42%
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "row",
+        }}
+      >
+        <img
+          src={corn}
+          alt="Watering_can"
+          style={{ width: "60px", height: "60px" }}
+        />
+        <progress value="42" max="100" className="light-green-text"></progress>
+        42%
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "row",
+        }}
+      >
+        <img
+          src={potato}
+          alt="Watering_can"
+          style={{ width: "60px", height: "60px" }}
+        />
+        <progress value="42" max="100" className="light-green-text"></progress>
+        42%
+      </div>
     </div>
   );
 };

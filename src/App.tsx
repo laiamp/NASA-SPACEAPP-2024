@@ -1,20 +1,10 @@
-// src/App.js
-<<<<<<< HEAD
+
 import { useState } from "react";
-//import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from "./components/navbar/navbar";
-import Home from "./components/home/home";
-import Water from "./components/water/water";
-import Explore from "./components/explore/explore";
-import "./App.css";
-=======
-import React, { useState } from 'react';
 import Navbar from './components/navbar';
 import Home from './components/home';
-import Water from './components/water';
-import Explore from './components/explore';
+import Plots from './components/plots';
+import Map from './components/map';
 import './App.css';
->>>>>>> explore_ok
 
 function App() {
   const [activeTab, setActiveTab] = useState("home");
@@ -23,10 +13,10 @@ function App() {
     switch (activeTab) {
       case "home":
         return <Home />;
-      case "water":
-        return <Water />;
-      case "explore":
-        return <Explore />;
+      case "map":
+        return <Map />;
+      case "plots":
+        return <Plots />;
       default:
         return <Home />;
     }
