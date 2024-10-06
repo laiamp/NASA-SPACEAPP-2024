@@ -90,7 +90,7 @@ const MapWithLayers = () => {
     <div>
       <p>Click on the map to add a marker layer. You can delete or name each marker from the popup.</p>
 
-      <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: '400px', width: '100%' }}>
+      <MapContainer center={[41.6176, 0.6200]} zoom={13} style={{ height: '400px', width: '100%' }}>
         <MapClickHandler onMapClick={addLayer} />
 
         <LayersControl position="topright">
