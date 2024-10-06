@@ -3,8 +3,8 @@ import { useState } from "react";
 //import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from "./components/navbar/navbar";
 import Home from "./components/home/home";
-import Water from "./components/water/water";
-import Explore from "./components/explore/explore";
+import Water from "./components/map/map";
+import Explore from "./components/plots/plots";
 import "./App.css";
 
 function App() {
